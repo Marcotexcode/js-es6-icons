@@ -33,12 +33,15 @@
 .head-bottom h2 {
     text-transform: uppercase;
     margin: 0px 10px;
+    color: white;
+    font-weight: 100;
 }
 
 main {
     max-height:calc(100% - 120px);
     width: 98%;
     margin: 0auto;
+    
 }
 
 main .row {
@@ -62,5 +65,6 @@ main .row {
     text-align: center;
 }
 .box1 span i {
+    margin-bottom: 10px;
     font-size: 30px;
 }
