@@ -100,10 +100,24 @@ const icons = [
 
 print(icons);
 
+const colorAnimal = 'red';
+const colorUser = '';
+const colorVegetable = '';
 
 
+const addColor = icons.map((element) => {
+
+  const {name, prefix, type, family} = element;
+
+  if (type === 'user') {
+    color = colorAnimal;
+  }
 
 
+  return {
+   color
+  }
+});
 
 
 
