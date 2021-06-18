@@ -98,15 +98,33 @@ const icons = [
     },
   ];
 
-  icons.forEach((element) => {
+print(icons);
+
+
+
+
+
+
+
+
+
+
+// FUNZIONI
+
+function print(array) {
+  array.forEach((element) => {
+
+    const {name, prefix, family} = element;
 
     document.getElementById('icons').innerHTML += 
 
     `
         <div class="box1">
-            <span><i class="${element.prefix} ${element.family}"></i><p>${element.name}</p></span>
+            <span><i class="${prefix} ${family}"></i><p>${name}</p></span>
         </div>
         
     `
 
   });
+
+}
