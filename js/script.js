@@ -107,8 +107,7 @@ const icons = [
         <div class="box1">
             <span><i class="fas fa-crow"></i><p>${element.nome}</p></span>
         </div>
-        ${element.nome} <i class='fas fa-cat' style='color: ${element.colore}'></i>,
-    
+        
     `
 
   });
