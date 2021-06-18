@@ -2,97 +2,97 @@
 const icons = [
     {
       name: 'cat',
-      prefix: 'fa-',
+      prefix: 'fa-cat',
       type: 'animal',
       family: 'fas',
     },
     {
       name: 'crow',
-      prefix: 'fa-',
+      prefix: 'fa-crow',
       type: 'animal',
       family: 'fas',
     },
     {
       name: 'dog',
-      prefix: 'fa-',
+      prefix: 'fa-dog',
       type: 'animal',
       family: 'fas',
     },
     {
       name: 'dove',
-      prefix: 'fa-',
+      prefix: 'fa-dove',
       type: 'animal',
       family: 'fas',
     },
     {
       name: 'dragon',
-      prefix: 'fa-',
+      prefix: 'fa-dragon',
       type: 'animal',
       family: 'fas',
     },
     {
       name: 'horse',
-      prefix: 'fa-',
+      prefix: 'fa-horse',
       type: 'animal',
       family: 'fas',
     },
     {
       name: 'hippo',
-      prefix: 'fa-',
+      prefix: 'fa-hippo',
       type: 'animal',
       family: 'fas',
     },
     {
       name: 'fish',
-      prefix: 'fa-',
+      prefix: 'fa-fish',
       type: 'animal',
       family: 'fas',
     },
     {
       name: 'carrot',
-      prefix: 'fa-',
+      prefix: 'fa-carrot',
       type: 'vegetable',
       family: 'fas',
     },
     {
       name: 'apple-alt',
-      prefix: 'fa-',
+      prefix: 'fa-apple-alt',
       type: 'vegetable',
       family: 'fas',
     },
     {
       name: 'lemon',
-      prefix: 'fa-',
+      prefix: 'fa-lemon',
       type: 'vegetable',
       family: 'fas',
     },
     {
       name: 'pepper-hot',
-      prefix: 'fa-',
+      prefix: 'fa-pepper-hot',
       type: 'vegetable',
       family: 'fas',
     },
     {
       name: 'user-astronaut',
-      prefix: 'fa-',
+      prefix: 'fa-user-astronaut',
       type: 'user',
       family: 'fas',
     },
     {
       name: 'user-graduate',
-      prefix: 'fa-',
+      prefix: 'fa-user-graduate',
       type: 'user',
       family: 'fas',
     },
     {
       name: 'user-ninja',
-      prefix: 'fa-',
+      prefix: 'fa-user-ninja',
       type: 'user',
       family: 'fas',
     },
     {
       name: 'user-secret',
-      prefix: 'fa-',
+      prefix: 'fa-user-secret',
       type: 'user',
       family: 'fas',
     },
@@ -102,10 +102,9 @@ const icons = [
 
     document.getElementById('icons').innerHTML += 
 
-      
     `
         <div class="box1">
-            <span><i class="fas fa-crow"></i><p>${element.nome}</p></span>
+            <span><i class="${element.prefix} ${element.family}"></i><p>${element.name}</p></span>
         </div>
         
     `
