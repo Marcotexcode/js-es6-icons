@@ -1,111 +1,161 @@
 
 const icons = [
 
-  {name:'cat', prefix:'fa-cat', type:'animal', family:'fas'}, 
+  {name:'cat', prefix:'fa-', type:'animal', family:'fas'}, 
   
-  {name:'crow', prefix:'fa-crow', type:'animal', family:'fas', }, 
+  {name:'crow', prefix:'fa-', type:'animal', family:'fas', }, 
   
-  {name:'dog', prefix:'fa-dog', type:'animal', family:'fas', }, 
+  {name:'dog', prefix:'fa-', type:'animal', family:'fas', }, 
   
-  {name:'dove', prefix:'fa-dove', type:'animal', family:'fas', }, 
+  {name:'dove', prefix:'fa-', type:'animal', family:'fas', }, 
   
-  {name:'dragon', prefix:'fa-dragon', type:'animal', family:'fas', }, 
+  {name:'dragon', prefix:'fa-', type:'animal', family:'fas', }, 
   
-  {name:'horse', prefix:'fa-horse', type:'animal', family:'fas', }, 
+  {name:'horse', prefix:'fa-', type:'animal', family:'fas', }, 
   
-  {name:'hippo', prefix:'fa-hippo', type:'animal', family:'fas', }, 
+  {name:'hippo', prefix:'fa-', type:'animal', family:'fas', }, 
   
-  {name:'fish', prefix:'fa-fish', type:'animal', family:'fas', }, 
+  {name:'fish', prefix:'fa-', type:'animal', family:'fas', }, 
   
-  {name:'carrot', prefix:'fa-carrot', type:'vegetable', family:'fas', }, 
+  {name:'carrot', prefix:'fa-', type:'vegetable', family:'fas', }, 
   
-  {name:'apple-alt', prefix:'fa-apple-alt', type:'vegetable', family:'fas', }, 
+  {name:'apple-alt', prefix:'fa-', type:'vegetable', family:'fas', }, 
   
-  {name:'lemon', prefix:'fa-lemon', type:'vegetable', family:'fas', }, 
+  {name:'lemon', prefix:'fa-', type:'vegetable', family:'fas', }, 
   
-  {name:'pepper-hot', prefix:'fa-pepper-hot', type:'vegetable', family:'fas', }, 
+  {name:'pepper-hot', prefix:'fa-', type:'vegetable', family:'fas', }, 
   
-  {name:'user-astronaut', prefix:'fa-user-astronaut', type:'user', family:'fas', }, 
+  {name:'user-astronaut', prefix:'fa-', type:'user', family:'fas', }, 
   
-  {name:'user-graduate', prefix:'fa-user-graduate', type:'user', family:'fas', }, 
+  {name:'user-graduate', prefix:'fa-', type:'user', family:'fas', }, 
   
-  {name:'user-ninja', prefix:'fa-user-ninja', type:'user', family:'fas', }, 
+  {name:'user-ninja', prefix:'fa-', type:'user', family:'fas', }, 
   
-  {name:'user-secret', prefix:'fa-user-secret', type:'user', family:'fas', }, 
+  {name:'user-secret', prefix:'fa-', type:'user', family:'fas', }, 
 
-  ];
-
-
-print(icons);
-
-// const coloredArray = icons.map((element) => {
-
-//   let color = 'purple';
-
-//   const {name, prefix, type, family} = element;
-
-  
-//   if(type == 'animal') {
-//     color = 'blue';
-//   } else if (type == 'vegetable') {
-//     color = 'orange';
-//   } 
-  
-
-//   return {
-//     name, 
-//     prefix, 
-//     type, 
-//     family,
-//     color
-//   }
-
-// });
+];
 
 
 
+const coloredArray = colorIcons(icons);
+
+printIcons(coloredArray);
+
+// aggiungere ogni type di elemento in un array usando il foreach
+// e metterlo agiungere un tag option nell html
+
+const types = [];
+
+coloredArray.forEach((element) => {
+
+  if(!types.includes(element.type)) {
+
+    types.push(element.type);
+
+    document.getElementById('type').innerHTML += 
+
+    `
+      <option value="${element.type}">${element.type}</option>
+      
+    `
+
+  }
+
+});
+
+
+// FILTRARE LE ICONE 
+
+const select = document.getElementById('type');
+
+console.log(select);
+
+select.addEventListener('change', function() {
+
+  const valoreSelect = select.value; 
+
+  console.log(valoreSelect);
+
+  const filteredIcons = coloredArray.filter((element) => {
+
+     return element.type == valoreSelect;
+
+  });
+
+  if(valoreSelect === 'ALL') {
+
+    printIcons(coloredArray);
+
+  }else {
+
+    printIcons(filteredIcons);
+
+  }
+
+});
 
 
 
-// const colorAnimal = 'red';
-// const colorUser = '';
-// const colorVegetable = '';
-
-
-// const addColor = icons.map((element) => {
-
-//   const {name, prefix, type, family} = element;
-
-//   if (type == 'user') {
-//     color : 'red';
-//   }
-
-
-//   return {
-//    color
-//   }
-// });
 
 
 
+// **************************** FUNZIONI **************************** //
 
 
-// FUNZIONI
 
-function print(array) {
+// **************************** FUNZIONE 1 **************************** //
+// AGGIUNGE QUELLO CHE C'E DENTRO L'ARRAY DI OGGETTI E LO STAMPA NELLA PAGINA CON AGGIUNTA DI CSS 
+
+function printIcons(array) {
+
+  document.getElementById('icons').innerHTML = ''; // si aggiunge per filtrare le icone
   array.forEach((element) => {
 
-    const {name, prefix, family} = element;
+    const {color, name, prefix, family} = element;
 
     document.getElementById('icons').innerHTML += 
 
     `
       <div class="box1 p-5 col-2 m-3  text-center">
-          <span><i class="${prefix} ${family}"></i><p>${name}</p></span>
+          <span><i class="${family} ${prefix}${name}" style="color:${color}"></i><p>${name.toUpperCase()}</p></span>
       </div>
         
     `
 
   });
+
+}
+// ${family} ${prefix}${name} NAME DA IL NOME A PREFISSO PER POTER AVERE TUTTLE LE ICONE, SI DEVE SCRIVERE TUTTO ATTACATO
+
+
+
+// **************************** FUNZIONE 2 **************************** //
+
+// DA COLORE AGLI ELEMENTI
+
+function colorIcons(array) {
+
+  const coloredArray =  array.map((element) => {
+
+    // aggiungere il colore creando una variabile e con una condizione fargli cambiare colore in base al (type)
+    let color = 'purple';
+  
+    if (element.type == 'animal') {
+  
+      color = 'blue';
+  
+    } else if (element.type == 'vegetable') {
+  
+      color = 'orange';
+    }
+  
+    return {
+      ...element, // Questo e il metodo spred, oppure usare la destrutturazione
+      color 
+    }
+  
+  });
+
+  return coloredArray;
 
 }
